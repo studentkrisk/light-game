@@ -10,7 +10,7 @@ func update_light():
 	queue_redraw()
 
 func _draw():
-	for i in $lights.get_children():
-		for j in i.lights:
-			if len(j) != 0:
-				draw_line(j[1], j[2], j[0], Global.TILE_SIZE)
+	for lighted in $lights.get_children():
+		for j in len(lighted.lights):
+			if len(lighted.lights[j]) != 0:
+				draw_line(lighted.lights[j][0], lighted.lights[j][1], lighted.colors[j], Global.TILE_SIZE)

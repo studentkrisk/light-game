@@ -16,9 +16,25 @@ script = ExtResource("1_xe56f")
 [node name="lights" type="Node2D" parent="."]
 
 [node name="emitter" parent="lights" instance=ExtResource("1_gxkug")]
+position = Vector2(120, 56)
+color = Color(0, 1, 0, 1)
+
+[node name="emitter2" parent="lights" instance=ExtResource("1_gxkug")]
 position = Vector2(120, 8)
-color = Color(0, 0, 1, 0.501961)
+color = Color(1, 0, 0, 0.501961)
+
+[node name="emitter3" parent="lights" instance=ExtResource("1_gxkug")]
+position = Vector2(120, -40)
+color = Color(0, 0, 1, 0.25098)
 
 [node name="splitter" parent="lights" instance=ExtResource("3_8sics")]
-position = Vector2(8, 8)
+position = Vector2(-24, 56)
+rotation = -1.5708
+
+[node name="splitter2" parent="lights" instance=ExtResource("3_8sics")]
+position = Vector2(-24, 8)
+rotation = -1.5708
+
+[node name="splitter3" parent="lights" instance=ExtResource("3_8sics")]
+position = Vector2(-24, -40)
 rotation = -1.5708
