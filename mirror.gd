@@ -1,9 +1,6 @@
 class_name Mirror
 
-extends CharacterBody2D
-
-@export var lights = [[], []]
-@export var colors = [Color.TRANSPARENT, Color.TRANSPARENT]
+extends "LightBody.gd"
 
 func update_light(body, color):
 	var ray1: RayCast2D = $RayCast2D1

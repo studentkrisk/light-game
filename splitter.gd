@@ -1,14 +1,13 @@
 class_name Splitter
 
-extends CharacterBody2D
-
-@export var lights = [[], [], []]
-@export var colors = [Color.RED*0, Color.RED*0, Color.RED*0]
+extends "LightBody.gd"
 
 func split(color: Color):
-	return [color/2, color/2]
+	return [Color(color, color.a/2), Color(color, color.a/2)]
 
 func update_light(body, color):
+	lights = [[], [], []]
+	colors = [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0)]
 	var ray1: RayCast2D = $RayCast2D1
 	var dir1 = (ray1.to_global(ray1.target_position) - ray1.global_position).normalized()
 	var start1 = ray1.global_position

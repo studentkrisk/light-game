@@ -13,4 +13,5 @@ func _draw():
 	for lighted in $lights.get_children():
 		for j in len(lighted.lights):
 			if len(lighted.lights[j]) != 0:
+				print(lighted.colors[j])
 				draw_line(lighted.lights[j][0], lighted.lights[j][1], lighted.colors[j], Global.TILE_SIZE)

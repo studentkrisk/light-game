@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://g4o5jlyx2s3j"]
+[gd_scene load_steps=6 format=3 uid="uid://g4o5jlyx2s3j"]
 
 [ext_resource type="PackedScene" uid="uid://bra62kyne5wmp" path="res://emitter.tscn" id="1_gxkug"]
 [ext_resource type="Script" path="res://light.gd" id="1_xe56f"]
 [ext_resource type="PackedScene" uid="uid://bek8804kmhsuq" path="res://splitter.tscn" id="3_8sics"]
+[ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="4_jeo0j"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84yd0"]
 blend_mode = 1
@@ -13,6 +14,9 @@ script = ExtResource("1_xe56f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="player" parent="." instance=ExtResource("4_jeo0j")]
+position = Vector2(40, -24)
+
 [node name="lights" type="Node2D" parent="."]
 
 [node name="emitter" parent="lights" instance=ExtResource("1_gxkug")]
@@ -21,11 +25,15 @@ color = Color(0, 1, 0, 1)
 
 [node name="emitter2" parent="lights" instance=ExtResource("1_gxkug")]
 position = Vector2(120, 8)
-color = Color(1, 0, 0, 0.501961)
+color = Color(1, 0, 0, 1)
 
 [node name="emitter3" parent="lights" instance=ExtResource("1_gxkug")]
 position = Vector2(120, -40)
-color = Color(0, 0, 1, 0.25098)
+color = Color(0, 0, 1, 1)
+
+[node name="emitter4" parent="lights" instance=ExtResource("1_gxkug")]
+position = Vector2(120, -40)
+color = Color(0, 0, 1, 1)
 
 [node name="splitter" parent="lights" instance=ExtResource("3_8sics")]
 position = Vector2(-24, 56)

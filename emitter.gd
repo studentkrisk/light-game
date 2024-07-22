@@ -1,10 +1,8 @@
 class_name Emitter
 
-extends CharacterBody2D
+extends "LightBody.gd"
 
-@export var lights = [[]]
 @export var color = Color(1, 1, 1, 0.5)
-@export var colors = []
 
 func update_light():
 	lights = [[]]
