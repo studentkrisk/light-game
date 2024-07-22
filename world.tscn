@@ -13,10 +13,29 @@ script = ExtResource("1_xe56f")
 
 [node name="emitter" parent="lights" instance=ExtResource("1_gxkug")]
 position = Vector2(72, 40)
+color = Color(0, 0, 1, 0.501961)
 
 [node name="emitter2" parent="lights" instance=ExtResource("1_gxkug")]
-position = Vector2(-72, 40)
+position = Vector2(-72, -8)
+rotation = 3.14159
+
+[node name="emitter3" parent="lights" instance=ExtResource("1_gxkug")]
+position = Vector2(24, 8)
 rotation = 1.5708
+color = Color(1, 0, 0, 0.501961)
+
+[node name="emitter4" parent="lights" instance=ExtResource("1_gxkug")]
+position = Vector2(40, -24)
+rotation = 4.71239
+color = Color(1, 0, 0, 0.501961)
 
 [node name="mirror" parent="lights" instance=ExtResource("3_qc8gd")]
 position = Vector2(-40, 40)
+
+[node name="mirror2" parent="lights" instance=ExtResource("3_qc8gd")]
+position = Vector2(-40, -40)
+rotation = 1.5708
+
+[node name="mirror3" parent="lights" instance=ExtResource("3_qc8gd")]
+position = Vector2(104, -40)
+rotation = 3.14159

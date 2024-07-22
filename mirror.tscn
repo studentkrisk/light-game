@@ -7,6 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="mirror" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_ovr7r")
 
 [node name="Icon" type="Sprite2D" parent="."]

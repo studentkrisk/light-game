@@ -1,26 +1,32 @@
+class_name Mirror
+
 extends CharacterBody2D
 
-@export var light = []
+@export var lights = [[], []]
 
-func update_light():
-	light = []
+func update_light(body, color):
 	var ray1: RayCast2D = $RayCast2D1
 	var dir1 = (ray1.to_global(ray1.target_position) - ray1.global_position).normalized()
 	var start1 = ray1.global_position
 	var ray2: RayCast2D = $RayCast2D2
 	var dir2 = (ray2.to_global(ray2.target_position) - ray2.global_position).normalized()
 	var start2 = ray2.global_position
-	if $RayCast2D1.is_colliding():
-		light.append(start2 + dir2*Global.TILE_SIZE/2)
+	if $RayCast2D1.is_colliding() and ray1.get_collider() == body:
+		lights[0] = [color]
+		lights[0].append(start2 + dir2*Global.TILE_SIZE/2)
 		if ray2.is_colliding():
-			light.append(ray2.get_collision_point())
-			ray2.get_collider().update_light()
+			lights[0].append(ray2.get_collision_point())
+			if not (ray2.get_collider() is Emitter):
+				ray2.get_collider().update_light(self, color)
 		else:
-			light.append(start2 + dir2*Global.TILE_SIZE*25)
-	if $RayCast2D2.is_colliding():
-		light.append(start1 + dir1*Global.TILE_SIZE/2)
+			lights[0].append(start2 + dir2*Global.TILE_SIZE*25)
+	if $RayCast2D2.is_colliding() and ray2.get_collider() == body:
+		lights[1] = [color]
+		lights[1].append(start1 + dir1*Global.TILE_SIZE/2)
 		if ray1.is_colliding():
-			light.append(ray1.get_collision_point())
-			ray1.get_collider().update_light()
+			lights[1].append(ray1.get_collision_point())
+			if not (ray1.get_collider() is Emitter):
+				ray1.get_collider().update_light(self, color)
 		else:
-			light.append(start1 + dir1*Global.TILE_SIZE*25)
+			lights[1].append(start1 + dir1*Global.TILE_SIZE*25)
+	print(lights)
