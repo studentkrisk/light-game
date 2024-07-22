@@ -7,6 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="mirror" type="CharacterBody2D"]
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_ovr7r")
 
@@ -20,6 +21,8 @@ shape = SubResource("RectangleShape2D_hxoof")
 
 [node name="RayCast2D1" type="RayCast2D" parent="."]
 target_position = Vector2(0, -400)
+collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 target_position = Vector2(400, 0)
+collision_mask = 2

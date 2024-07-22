@@ -5,11 +5,11 @@ extends CharacterBody2D
 @export var lights = []
 @export var colors = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func update_light():
 	pass
+
+func _physics_process(delta):
+	velocity *= 0.25
+	if velocity.length() >= 0.05:
+		update_light()
+	move_and_slide()

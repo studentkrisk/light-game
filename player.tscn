@@ -16,3 +16,6 @@ shape = SubResource("RectangleShape2D_ut664")
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_d3f2y")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
