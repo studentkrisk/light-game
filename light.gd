@@ -13,4 +13,4 @@ func _draw():
 	for i in $lights.get_children():
 		for j in i.lights:
 			if len(j) != 0:
-				draw_multiline(PackedVector2Array(j.slice(1)), j[0], Global.TILE_SIZE)
+				draw_line(j[1], j[2], j[0], Global.TILE_SIZE)
