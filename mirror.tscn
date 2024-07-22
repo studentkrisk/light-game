@@ -1,10 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6o4ef25wjqrv"]
+[gd_scene load_steps=4 format=3 uid="uid://b6o4ef25wjqrv"]
 
 [ext_resource type="Texture2D" uid="uid://bbsg1dtpuhsj6" path="res://icon.svg" id="1_ipiuy"]
+[ext_resource type="Script" path="res://mirror.gd" id="1_ovr7r"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxoof"]
+size = Vector2(16, 16)
+
+[node name="mirror" type="CharacterBody2D"]
+script = ExtResource("1_ovr7r")
 
 [node name="Icon" type="Sprite2D" parent="."]
 rotation = 0.785398
 scale = Vector2(0.125, 0.05)
 texture = ExtResource("1_ipiuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hxoof")
+
+[node name="RayCast2D1" type="RayCast2D" parent="."]
+target_position = Vector2(0, -400)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(400, 0)

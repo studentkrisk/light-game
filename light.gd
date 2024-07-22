@@ -1,11 +1,17 @@
 extends Node2D
 
+func _ready():
+	await get_tree().root.is_node_ready()
+	update_light()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func update_light():
+	for i in $lights.get_children():
+		i.update_light()
+	get_tree().root.get_child(1).queue_redraw()
+
 func _process(delta):
-	pass
+	update_light()
 
 func _draw():
 	for i in $lights.get_children():
-		for j in i.lighted:
-			draw_rect(Rect2(j - Vector2.ONE*8, Vector2.ONE*16), Color.WHITE)
+		draw_multiline(PackedVector2Array(i.light), Color(1, 1, 1, 0.5), Global.TILE_SIZE)
