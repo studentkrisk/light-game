@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://g4o5jlyx2s3j"]
+
+[ext_resource type="PackedScene" uid="uid://bra62kyne5wmp" path="res://emitter.tscn" id="1_gxkug"]
+[ext_resource type="Script" path="res://light.gd" id="1_xe56f"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_xe56f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="emitters" type="Node2D" parent="."]
+
+[node name="emitter" parent="emitters" instance=ExtResource("1_gxkug")]
+position = Vector2(72, 40)
