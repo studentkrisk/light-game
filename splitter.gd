@@ -13,7 +13,7 @@ func _ready():
 func split(color: Color):
 	return [Color(color, color.a/2), Color(color, color.a/2)]
 
-func update_light(body, color):
+func update_light():
 	ray1.force_raycast_update()
 	ray2.force_raycast_update()
 	ray3.force_raycast_update()
@@ -24,7 +24,6 @@ func update_light(body, color):
 	var start2 = ray2.global_position
 	var dir3 = (ray3.to_global(ray3.target_position) - ray3.global_position).normalized()
 	var start3 = ray3.global_position
-	var split_colors = split(color)
 	
 	if ray1.is_colliding() and ray1.get_collider() == body:
 		lights[1] = []

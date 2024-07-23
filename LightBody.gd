@@ -11,5 +11,6 @@ func update_light():
 func _physics_process(delta):
 	velocity *= 0.25
 	if velocity.length() >= 0.05:
-		update_light()
+		for i in Global.LIGHT_BODIES:
+			i.update_light()
 	move_and_slide()
