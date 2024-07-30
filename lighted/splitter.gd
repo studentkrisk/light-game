@@ -1,6 +1,6 @@
 class_name Splitter
 
-extends "lighted/LightBody.gd"
+extends "LightBody.gd"
 
 @onready var ray0: RayCast2D = $RayCast2D0
 @onready var ray1: RayCast2D = $RayCast2D1

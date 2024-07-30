@@ -1,6 +1,6 @@
 class_name Emitter
 
-extends "lighted/LightBody.gd"
+extends "LightBody.gd"
 
 @export var color = Color(1, 1, 1, 0.5)
 @onready var ray: RayCast2D = $RayCast2D
