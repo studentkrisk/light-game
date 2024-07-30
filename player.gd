@@ -9,5 +9,5 @@ func _physics_process(delta):
 	velocity *= 0.7
 	ray.target_position = inp*9
 	if ray.is_colliding() and ray.get_collider() is LightBody:
-		ray.get_collider().velocity += inp*25
+		ray.get_collider().velocity += inp*50
 	move_and_slide()

@@ -8,13 +8,12 @@ extends "LightBody.gd"
 func update_light():
 	ray.force_raycast_update()
 	lights = [[]]
-	colors = [color]
+	colors = [[color]]
 	var dir = (ray.to_global(ray.target_position) - ray.global_position).normalized()
 	var start = ray.global_position
 	lights[0].append(start + dir*Global.TILE_SIZE/2)
 	if ray.is_colliding():
 		lights[0].append(ray.get_collision_point())
-		if not (ray.get_collider() is Emitter):
-			ray.get_collider().update_light()
+		ray.get_collider().hit_by_light(self, color)
 	else:
 		lights[0].append(start + dir*Global.TILE_SIZE*25)

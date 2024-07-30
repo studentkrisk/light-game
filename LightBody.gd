@@ -7,6 +7,9 @@ extends CharacterBody2D
 
 func update_light():
 	pass
+	
+func hit_by_light(body, color):
+	pass
 
 func _physics_process(delta):
 	velocity *= 0.25

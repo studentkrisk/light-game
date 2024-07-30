@@ -19,10 +19,10 @@ texture = ExtResource("1_ipiuy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hxoof")
 
-[node name="RayCast2D1" type="RayCast2D" parent="."]
+[node name="RayCast2D0" type="RayCast2D" parent="."]
 target_position = Vector2(0, -400)
 collision_mask = 2
 
-[node name="RayCast2D2" type="RayCast2D" parent="."]
+[node name="RayCast2D1" type="RayCast2D" parent="."]
 target_position = Vector2(400, 0)
 collision_mask = 2
