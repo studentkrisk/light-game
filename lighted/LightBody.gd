@@ -18,15 +18,18 @@ func reset():
 	lights = []
 	colors = []
 
+func update_all():
+	for i in Global.LIGHT_BODIES:
+		i.reset()
+	for i in Global.LIGHT_BODIES:
+		if i is Emitter:
+			i.update_light()
+	for i in Global.LIGHT_BODIES:
+		if i is Reciver:
+			i.evaluate()
+
 func _physics_process(delta):
 	velocity *= 0.25
 	if velocity.length() >= 0.05:
-		for i in Global.LIGHT_BODIES:
-			i.reset()
-		for i in Global.LIGHT_BODIES:
-			if i is Emitter:
-				i.update_light()
-		for i in Global.LIGHT_BODIES:
-			if i is Reciver:
-				i.evaluate()
+		update_all()
 	move_and_slide()

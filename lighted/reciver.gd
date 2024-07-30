@@ -23,5 +23,5 @@ func evaluate():
 			print("hit by ", hit_by)
 		else:
 			unhit.emit()
-			print(unhit)
+			print("unhit")
 	last_hit_by = hit_by

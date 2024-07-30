@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	update_light()
+	Global.LIGHT_BODIES = $lights.get_children()
 
 func update_light():
 	for i in $lights.get_children().filter(func(x): return x is Emitter):
