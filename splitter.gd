@@ -25,7 +25,9 @@ func update_light():
 	var dir3 = (ray3.to_global(ray3.target_position) - ray3.global_position).normalized()
 	var start3 = ray3.global_position
 	
-	if ray1.is_colliding() and ray1.get_collider() == body:
+	if ray1.is_colliding():
+		var body = ray1.get_collider()
+		var split_colors = split(body.color)
 		lights[1] = []
 		lights[2] = []
 		colors[1] += split_colors[0]

@@ -16,10 +16,10 @@ func update_light():
 	var start1 = ray1.global_position
 	var dir2 = (ray2.to_global(ray2.target_position) - ray2.global_position).normalized()
 	var start2 = ray2.global_position
-	if ray1.is_colliding() and ray1.get_collider():
+	if ray1.is_colliding():
 		var body = ray1.get_collider()
 		lights[1] = []
-		colors[1] = body.color
+		colors[1] = body.colors[0]
 		lights[1].append(start2 + dir2*Global.TILE_SIZE/2)
 		if ray2.is_colliding():
 			lights[1].append(ray2.get_collision_point())
