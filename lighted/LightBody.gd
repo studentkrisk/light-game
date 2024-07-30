@@ -26,4 +26,7 @@ func _physics_process(delta):
 		for i in Global.LIGHT_BODIES:
 			if i is Emitter:
 				i.update_light()
+		for i in Global.LIGHT_BODIES:
+			if i is Reciver:
+				i.evaluate()
 	move_and_slide()

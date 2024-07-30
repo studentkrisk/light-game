@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g4o5jlyx2s3j"]
+[gd_scene load_steps=9 format=3 uid="uid://g4o5jlyx2s3j"]
 
 [ext_resource type="Script" path="res://light.gd" id="1_xe56f"]
 [ext_resource type="PackedScene" uid="uid://bra62kyne5wmp" path="res://lighted/emitter.tscn" id="3_7nnak"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6o4ef25wjqrv" path="res://lighted/mirror.tscn" id="4_k5xxh"]
 [ext_resource type="PackedScene" uid="uid://bek8804kmhsuq" path="res://lighted/splitter.tscn" id="5_qiwmy"]
 [ext_resource type="PackedScene" uid="uid://cxu36bevtbj1g" path="res://lighted/blocker.tscn" id="6_kycjq"]
+[ext_resource type="PackedScene" uid="uid://cqt67nrtk5xv3" path="res://lighted/reciver.tscn" id="7_o25ak"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84yd0"]
 blend_mode = 1
@@ -22,29 +23,23 @@ position = Vector2(40, -24)
 [node name="lights" type="Node2D" parent="."]
 
 [node name="emitter" parent="lights" instance=ExtResource("3_7nnak")]
-position = Vector2(88, 56)
+position = Vector2(-104, -56)
+rotation = 3.14159
 color = Color(1, 0, 0, 0.501961)
-lights = null
-colors = null
 
 [node name="emitter2" parent="lights" instance=ExtResource("3_7nnak")]
-position = Vector2(-72, 56)
-rotation = 3.14159
+position = Vector2(-24, 24)
+rotation = 1.5708
 color = Color(0, 1, 1, 0.501961)
-lights = null
-colors = null
 
 [node name="mirror" parent="lights" instance=ExtResource("4_k5xxh")]
 position = Vector2(-24, 56)
-lights = null
-colors = null
 
 [node name="splitter" parent="lights" instance=ExtResource("5_qiwmy")]
 position = Vector2(-24, -56)
-lights = null
-colors = null
 
 [node name="blocker" parent="lights" instance=ExtResource("6_kycjq")]
 position = Vector2(24, 56)
-lights = null
-colors = null
+
+[node name="reciver" parent="lights" instance=ExtResource("7_o25ak")]
+position = Vector2(88, -56)

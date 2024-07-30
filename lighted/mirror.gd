@@ -36,6 +36,7 @@ func hit_by_light(body, color):
 			lights[0].append(start0 + dir0*Global.TILE_SIZE*25)
 
 func update_light():
+	print('e')
 	ray0.force_raycast_update()
 	ray1.force_raycast_update()
 	if not ray0.is_colliding():

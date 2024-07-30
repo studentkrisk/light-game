@@ -9,7 +9,7 @@ func update_light():
 	queue_redraw()
 
 func _process(delta):
-	update_light()
+	queue_redraw()
 
 func _draw():
 	for lighted in $lights.get_children():

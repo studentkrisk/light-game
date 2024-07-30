@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxu36bevtbj1g"]
 
-[ext_resource type="Script" path="res://blocker.gd" id="1_ha24k"]
+[ext_resource type="Script" path="res://lighted/blocker.gd" id="1_poqms"]
 [ext_resource type="Texture2D" uid="uid://bbsg1dtpuhsj6" path="res://icon.svg" id="2_58cq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y86kw"]
@@ -9,7 +9,7 @@ size = Vector2(16, 16)
 [node name="blocker" type="CharacterBody2D"]
 collision_layer = 3
 motion_mode = 1
-script = ExtResource("1_ha24k")
+script = ExtResource("1_poqms")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.125, 0.125)
