@@ -61,7 +61,7 @@ func hit_by_light(body, color):
 		lights[3] = []
 		lights[0] = []
 		colors[2][1] = split_colors[0]
-		colors[3][0] = split_colors[1]
+		colors[3][1] = split_colors[1]
 		colors[0][0] = split_colors[2]
 		lights[2].append(start2 + dir2*Global.TILE_SIZE/2)
 		lights[3].append(start3 + dir3*Global.TILE_SIZE/2)
@@ -85,9 +85,9 @@ func hit_by_light(body, color):
 		lights[3] = []
 		lights[0] = []
 		lights[1] = []
-		colors[3][0] = split_colors[0]
-		colors[0][0] = split_colors[1]
-		colors[1][0] = split_colors[2]
+		colors[3][2] = split_colors[0]
+		colors[0][1] = split_colors[1]
+		colors[1][1] = split_colors[2]
 		lights[3].append(start3 + dir3*Global.TILE_SIZE/2)
 		lights[0].append(start0 + dir0*Global.TILE_SIZE/2)
 		lights[1].append(start1 + dir1*Global.TILE_SIZE/2)
@@ -110,9 +110,9 @@ func hit_by_light(body, color):
 		lights[0] = []
 		lights[1] = []
 		lights[2] = []
-		colors[0][1] = split_colors[0]
-		colors[1][1] = split_colors[1]
-		colors[2][1] = split_colors[2]
+		colors[0][2] = split_colors[0]
+		colors[1][2] = split_colors[1]
+		colors[2][2] = split_colors[2]
 		lights[0].append(start0 + dir0*Global.TILE_SIZE/2)
 		lights[1].append(start1 + dir1*Global.TILE_SIZE/2)
 		lights[2].append(start2 + dir2*Global.TILE_SIZE/2)
@@ -146,22 +146,22 @@ func update_light():
 		colors[3][0] = Color(0, 0, 0, 0)
 	if not ray1.is_colliding():
 		lights[2] = []
-		colors[2][0] = Color(0, 0, 0, 0)
+		colors[2][1] = Color(0, 0, 0, 0)
 		lights[3] = []
 		colors[3][1] = Color(0, 0, 0, 0)
 		lights[0] = []
-		colors[0][1] = Color(0, 0, 0, 0)
+		colors[0][0] = Color(0, 0, 0, 0)
 	if not ray2.is_colliding():
 		lights[3] = []
-		colors[3][1] = Color(0, 0, 0, 0)
+		colors[3][2] = Color(0, 0, 0, 0)
 		lights[0] = []
 		colors[0][1] = Color(0, 0, 0, 0)
 		lights[1] = []
 		colors[1][1] = Color(0, 0, 0, 0)
 	if not ray3.is_colliding():
 		lights[0] = []
-		colors[0][1] = Color(0, 0, 0, 0)
+		colors[0][2] = Color(0, 0, 0, 0)
 		lights[1] = []
-		colors[1][1] = Color(0, 0, 0, 0)
+		colors[1][2] = Color(0, 0, 0, 0)
 		lights[2] = []
-		colors[2][1] = Color(0, 0, 0, 0)
+		colors[2][2] = Color(0, 0, 0, 0)
