@@ -17,14 +17,10 @@ func hit_by_light(body, color):
 	ray0.force_raycast_update()
 	ray1.force_raycast_update()
 	ray2.force_raycast_update()
-	var dir0 = (ray0.to_global(ray0.target_position) - ray0.global_position).normalized()
-	var start0 = ray0.global_position
-	var dir1 = (ray1.to_global(ray1.target_position) - ray1.global_position).normalized()
-	var start1 = ray1.global_position
-	var dir2 = (ray2.to_global(ray2.target_position) - ray2.global_position).normalized()
-	var start2 = ray2.global_position
-	
 	var split_colors = split(color)
+	call("check_ray", body, color, ray0, [ray1, ray2])
+	call("check_ray", body, color, ray1, [ray2, ray0])
+	call("check_ray", body, color, ray2, [ray0, ray1])
 	
 	if ray0.is_colliding() and ray0.get_collider() == body:
 		lights[1] = []
