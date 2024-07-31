@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccl7xwo4o7lxs"]
+[gd_scene load_steps=9 format=3 uid="uid://ccl7xwo4o7lxs"]
 
 [ext_resource type="Script" path="res://light.gd" id="1_onqx5"]
 [ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="2_hcluu"]
@@ -6,22 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cqt67nrtk5xv3" path="res://lighted/reciver.tscn" id="4_ranue"]
 [ext_resource type="PackedScene" uid="uid://bkr3rehpnlw2j" path="res://exit.tscn" id="5_ld54k"]
 [ext_resource type="PackedScene" uid="uid://bek8804kmhsuq" path="res://lighted/splitter.tscn" id="5_s8xe3"]
-[ext_resource type="PackedScene" uid="uid://cxu36bevtbj1g" path="res://lighted/blocker.tscn" id="7_4xjll"]
-[ext_resource type="PackedScene" uid="uid://b6o4ef25wjqrv" path="res://lighted/mirror.tscn" id="8_la6dr"]
+[ext_resource type="TileSet" uid="uid://c6uaxs5ycf0q4" path="res://tileset.tres" id="7_wnu6p"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84yd0"]
 blend_mode = 1
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jejxc"]
-resource_name = "Lighted Objects"
-scenes/1/scene = ExtResource("7_4xjll")
-scenes/2/scene = ExtResource("3_wc25b")
-scenes/3/scene = ExtResource("8_la6dr")
-scenes/4/scene = ExtResource("4_ranue")
-scenes/5/scene = ExtResource("5_s8xe3")
-
-[sub_resource type="TileSet" id="TileSet_d6snu"]
-sources/3 = SubResource("TileSetScenesCollectionSource_jejxc")
 
 [node name="world" type="Node2D"]
 material = SubResource("CanvasItemMaterial_84yd0")
@@ -30,34 +18,34 @@ script = ExtResource("1_onqx5")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("2_hcluu")]
-position = Vector2(0, 96)
+position = Vector2(0, 88)
 
 [node name="lights" type="Node2D" parent="."]
 
 [node name="emitter" parent="lights" instance=ExtResource("3_wc25b")]
-position = Vector2(0, 48)
+position = Vector2(8, 56)
 rotation = 1.5708
 color = Color(1, 0, 0, 0.5)
 
 [node name="reciver" parent="lights" instance=ExtResource("4_ranue")]
-position = Vector2(-64, -16)
-rotation = 1.5708
+position = Vector2(8, -40)
+rotation = -1.5708
 
 [node name="reciver2" parent="lights" instance=ExtResource("4_ranue")]
-position = Vector2(96, -16)
+position = Vector2(88, -8)
 rotation = 1.5708
 
 [node name="splitter" parent="lights" instance=ExtResource("5_s8xe3")]
-position = Vector2(0, -48)
+position = Vector2(-24, -8)
 
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("5_ld54k")]
 position = Vector2(0, -96)
 recivers = [NodePath("../lights/reciver"), NodePath("../lights/reciver2")]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_d6snu")
+tile_set = ExtResource("7_wnu6p")
 format = 2
-layer_0/tile_data = PackedInt32Array(65539, 3, 131072)
+layer_0/tile_data = PackedInt32Array(393208, 393216, 1, 393209, 393216, 1, 393210, 393216, 1, 393211, 393216, 1, 393212, 393216, 1, 393213, 393216, 1, 393214, 393216, 1, 327681, 393216, 1, 327682, 393216, 1, 327683, 393216, 1, 327684, 393216, 1, 327685, 393216, 1, 327686, 393216, 1, 327687, 393216, 1, 262151, 393216, 1, 196615, 393216, 1, 131079, 393216, 1, 65543, 393216, 1, 7, 393216, 1, -65529, 393216, 1, -131065, 393216, 1, -196601, 393216, 1, -262137, 393216, 1, -327673, 393216, 1, -393209, 393216, 1, -393210, 393216, 1, -393211, 393216, 1, -393212, 393216, 1, -393213, 393216, 1, -393214, 393216, 1, -393215, 393216, 1, -327682, 393216, 1, -327683, 393216, 1, -327684, 393216, 1, -327685, 393216, 1, -327686, 393216, 1, -327687, 393216, 1, -327688, 393216, 1, -262152, 393216, 1, -196616, 393216, 1, -131080, 393216, 1, -65544, 393216, 1, -8, 393216, 1, 65528, 393216, 1, 131064, 393216, 1, 196600, 393216, 1, 262136, 393216, 1, 327672, 393216, 1, 393216, 393216, 1, 458751, 393216, 1)
 
 [connection signal="hit" from="lights/reciver" to="exit" method="_on_reciver_hit"]
 [connection signal="unhit" from="lights/reciver" to="exit" method="_on_reciver_unhit"]

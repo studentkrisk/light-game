@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkr3rehpnlw2j"]
+[gd_scene load_steps=5 format=3 uid="uid://bkr3rehpnlw2j"]
 
 [ext_resource type="Script" path="res://exit.gd" id="1_134cd"]
 [ext_resource type="Texture2D" uid="uid://bbsg1dtpuhsj6" path="res://icon.svg" id="1_es8df"]
@@ -8,9 +8,6 @@ size = Vector2(32, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4b7d"]
 size = Vector2(32, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjg6k"]
-size = Vector2(48, 32)
 
 [node name="exit" type="StaticBody2D"]
 script = ExtResource("1_134cd")
@@ -28,11 +25,4 @@ position = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_b4b7d")
 
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(0, 20)
-shape = SubResource("RectangleShape2D_gjg6k")
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

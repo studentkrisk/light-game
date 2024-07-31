@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://g4o5jlyx2s3j"]
+[gd_scene load_steps=8 format=3 uid="uid://g4o5jlyx2s3j"]
 
 [ext_resource type="Script" path="res://light.gd" id="1_147nv"]
 [ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="2_u14go"]
 [ext_resource type="PackedScene" uid="uid://bra62kyne5wmp" path="res://lighted/emitter.tscn" id="3_v2ykl"]
 [ext_resource type="PackedScene" uid="uid://cqt67nrtk5xv3" path="res://lighted/reciver.tscn" id="6_ff07h"]
+[ext_resource type="TileSet" uid="uid://c6uaxs5ycf0q4" path="res://tileset.tres" id="6_y8e8o"]
 [ext_resource type="PackedScene" uid="uid://bkr3rehpnlw2j" path="res://exit.tscn" id="7_xd4us"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84yd0"]
@@ -16,21 +17,26 @@ script = ExtResource("1_147nv")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("2_u14go")]
-position = Vector2(0, 96)
+position = Vector2(0, 88)
 
 [node name="lights" type="Node2D" parent="."]
 
 [node name="emitter" parent="lights" instance=ExtResource("3_v2ykl")]
-position = Vector2(-96, 32)
+position = Vector2(-72, 24)
 rotation = 3.14159
 color = Color(1, 0, 0, 0.501961)
 
 [node name="reciver" parent="lights" instance=ExtResource("6_ff07h")]
-position = Vector2(80, -48)
+position = Vector2(72, -40)
 
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("7_xd4us")]
 position = Vector2(0, -96)
 recivers = [NodePath("../lights/reciver")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("6_y8e8o")
+format = 2
+layer_0/tile_data = PackedInt32Array(393208, 393216, 1, 393209, 393216, 1, 393210, 393216, 1, 393211, 393216, 1, 393212, 393216, 1, 393213, 393216, 1, 393214, 393216, 1, 327681, 393216, 1, 327682, 393216, 1, 327683, 393216, 1, 327684, 393216, 1, 327685, 393216, 1, 327686, 393216, 1, 327687, 393216, 1, 262151, 393216, 1, 196615, 393216, 1, 131079, 393216, 1, 65543, 393216, 1, 7, 393216, 1, -65529, 393216, 1, -131065, 393216, 1, -196601, 393216, 1, -262137, 393216, 1, -327673, 393216, 1, -393209, 393216, 1, -393210, 393216, 1, -393211, 393216, 1, -393212, 393216, 1, -393213, 393216, 1, -393214, 393216, 1, -393215, 393216, 1, -327682, 393216, 1, -327683, 393216, 1, -327684, 393216, 1, -327685, 393216, 1, -327686, 393216, 1, -327687, 393216, 1, -327688, 393216, 1, -262152, 393216, 1, -196616, 393216, 1, -131080, 393216, 1, -65544, 393216, 1, -8, 393216, 1, 65528, 393216, 1, 131064, 393216, 1, 196600, 393216, 1, 262136, 393216, 1, 327672, 393216, 1, 393216, 393216, 1, 458751, 393216, 1)
 
 [connection signal="hit" from="lights/reciver" to="exit" method="_on_reciver_hit"]
 [connection signal="unhit" from="lights/reciver" to="exit" method="_on_reciver_unhit"]
