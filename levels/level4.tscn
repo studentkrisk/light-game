@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccl7xwo4o7lxs"]
+[gd_scene load_steps=12 format=3 uid="uid://ccl7xwo4o7lxs"]
 
 [ext_resource type="Script" path="res://light.gd" id="1_onqx5"]
 [ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="2_hcluu"]
@@ -6,9 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://cqt67nrtk5xv3" path="res://lighted/reciver.tscn" id="4_ranue"]
 [ext_resource type="PackedScene" uid="uid://bkr3rehpnlw2j" path="res://exit.tscn" id="5_ld54k"]
 [ext_resource type="PackedScene" uid="uid://bek8804kmhsuq" path="res://lighted/splitter.tscn" id="5_s8xe3"]
+[ext_resource type="PackedScene" uid="uid://cxu36bevtbj1g" path="res://lighted/blocker.tscn" id="7_4xjll"]
+[ext_resource type="PackedScene" uid="uid://b6o4ef25wjqrv" path="res://lighted/mirror.tscn" id="8_la6dr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84yd0"]
 blend_mode = 1
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jejxc"]
+resource_name = "Lighted Objects"
+scenes/1/scene = ExtResource("7_4xjll")
+scenes/2/scene = ExtResource("3_wc25b")
+scenes/3/scene = ExtResource("8_la6dr")
+scenes/4/scene = ExtResource("4_ranue")
+scenes/5/scene = ExtResource("5_s8xe3")
+
+[sub_resource type="TileSet" id="TileSet_d6snu"]
+sources/3 = SubResource("TileSetScenesCollectionSource_jejxc")
 
 [node name="world" type="Node2D"]
 material = SubResource("CanvasItemMaterial_84yd0")
@@ -24,7 +37,7 @@ position = Vector2(0, 96)
 [node name="emitter" parent="lights" instance=ExtResource("3_wc25b")]
 position = Vector2(0, 48)
 rotation = 1.5708
-color = Color(1, 0, 0, 0.501961)
+color = Color(1, 0, 0, 0.5)
 
 [node name="reciver" parent="lights" instance=ExtResource("4_ranue")]
 position = Vector2(-64, -16)
@@ -40,6 +53,11 @@ position = Vector2(0, -48)
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("5_ld54k")]
 position = Vector2(0, -96)
 recivers = [NodePath("../lights/reciver"), NodePath("../lights/reciver2")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_d6snu")
+format = 2
+layer_0/tile_data = PackedInt32Array(65539, 3, 131072)
 
 [connection signal="hit" from="lights/reciver" to="exit" method="_on_reciver_hit"]
 [connection signal="unhit" from="lights/reciver" to="exit" method="_on_reciver_unhit"]

@@ -27,7 +27,6 @@ color = Color(1, 0, 0, 0.501961)
 
 [node name="reciver" parent="lights" instance=ExtResource("6_ff07h")]
 position = Vector2(80, -48)
-color = Color(1, 0, 0, 0.501961)
 
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("7_xd4us")]
 position = Vector2(0, -96)

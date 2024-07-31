@@ -28,12 +28,12 @@ color = Color(1, 0, 0, 0.501961)
 
 [node name="reciver" parent="lights" instance=ExtResource("6_qr4p7")]
 position = Vector2(80, 0)
-color = Color(1, 0, 0, 0.501961)
 
 [node name="blocker" parent="lights" instance=ExtResource("5_l7a4a")]
 
-[node name="exit" parent="." instance=ExtResource("7_ux1yr")]
+[node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("7_ux1yr")]
 position = Vector2(0, -96)
+recivers = [NodePath("../lights/reciver")]
 
 [connection signal="hit" from="lights/reciver" to="exit" method="_on_reciver_hit"]
 [connection signal="unhit" from="lights/reciver" to="exit" method="_on_reciver_unhit"]
