@@ -15,7 +15,14 @@ func hit_by_light(body, color):
 	ray0.force_raycast_update()
 	ray1.force_raycast_update()
 	ray2.force_raycast_update()
-	call("check_rays", body, Color(color, color.a/2), [ray0, ray1, ray2])
+	var new_color = Color(color, color.a/2)
+	
+	lights[1] = call("generate_light", body, colors[1].reduce(func(a, b): return a + b), ray0, ray1)
+	lights[2] = call("generate_light", body, colors[2].reduce(func(a, b): return a + b), ray0, ray2)
+	lights[2] = call("generate_light", body, colors[2].reduce(func(a, b): return a + b), ray1, ray2)
+	lights[0] = call("generate_light", body, colors[0].reduce(func(a, b): return a + b), ray1, ray0)
+	lights[0] = call("generate_light", body, colors[0].reduce(func(a, b): return a + b), ray2, ray0)
+	lights[1] = call("generate_light", body, colors[1].reduce(func(a, b): return a + b), ray2, ray1)
 	
 
 func update_light():
