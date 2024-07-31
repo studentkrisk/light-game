@@ -24,9 +24,6 @@ func update_all():
 	for i in Global.LIGHT_BODIES:
 		if i is Emitter:
 			i.update_light()
-	for i in Global.LIGHT_BODIES:
-		if i is Reciver:
-			i.evaluate()
 
 func _physics_process(delta):
 	velocity *= 0.25

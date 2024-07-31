@@ -16,7 +16,7 @@ script = ExtResource("1_147nv")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("2_u14go")]
-position = Vector2(-16, 64)
+position = Vector2(0, 96)
 
 [node name="lights" type="Node2D" parent="."]
 
@@ -27,10 +27,11 @@ color = Color(1, 0, 0, 0.501961)
 
 [node name="reciver" parent="lights" instance=ExtResource("6_ff07h")]
 position = Vector2(80, -48)
-
-[node name="exit" parent="." instance=ExtResource("7_xd4us")]
-position = Vector2(0, -96)
 color = Color(1, 0, 0, 0.501961)
 
-[connection signal="hit" from="lights/reciver" to="exit" method="open"]
-[connection signal="unhit" from="lights/reciver" to="exit" method="close"]
+[node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("7_xd4us")]
+position = Vector2(0, -96)
+recivers = [NodePath("../lights/reciver")]
+
+[connection signal="hit" from="lights/reciver" to="exit" method="_on_reciver_hit"]
+[connection signal="unhit" from="lights/reciver" to="exit" method="_on_reciver_unhit"]

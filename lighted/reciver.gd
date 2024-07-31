@@ -3,25 +3,17 @@ class_name Reciver
 extends "LightBody.gd"
 
 @onready var ray: RayCast2D = $RayCast2D
+@export var color: Color = Color(1, 0, 0, 0.25)
+@export var activated = false
+var hit_by = null
+
 signal hit(color)
 signal unhit
 
-var last_hit_by = null
-var hit_by = null
-
-func reset():
-	hit_by = null
-
-func hit_by_light(body, color):
+func hit_by_light(body, c):
 	if ray.is_colliding() and ray.get_collider() == body:
-		hit_by = color
-
-func evaluate():
-	if last_hit_by != hit_by:
-		if hit_by != null:
-			hit.emit(hit_by)
-			print("hit by ", hit_by)
+		hit_by = c
+		if hit_by == color:
+			activated = true
 		else:
-			unhit.emit()
-			print("unhit")
-	last_hit_by = hit_by
+			activated = false
