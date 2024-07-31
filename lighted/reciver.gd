@@ -10,6 +10,9 @@ var hit_by = null
 signal hit(color)
 signal unhit
 
+func _ready():
+	$ColorRect.color = color
+
 func hit_by_light(body, c):
 	if ray.is_colliding() and ray.get_collider() == body:
 		hit_by = c
@@ -18,3 +21,4 @@ func hit_by_light(body, c):
 			activated = true
 		else:
 			activated = false
+

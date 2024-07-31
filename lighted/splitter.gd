@@ -46,8 +46,8 @@ func hit_by_light(body, color):
 	if ray1.is_colliding() and ray1.get_collider() == body:
 		lights[2] = []
 		lights[0] = []
-		colors[2][0] = split_colors[0]
-		colors[0][1] = split_colors[1]
+		colors[2][1] = split_colors[0]
+		colors[0][0] = split_colors[1]
 		lights[2].append(start2 + dir2*Global.TILE_SIZE/2)
 		lights[0].append(start0 + dir0*Global.TILE_SIZE/2)
 		if ray2.is_colliding():
