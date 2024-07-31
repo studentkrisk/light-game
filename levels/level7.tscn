@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbvrkybfwd5ux"]
+[gd_scene load_steps=10 format=3 uid="uid://dbvrkybfwd5ux"]
 
 [ext_resource type="Script" path="res://light.gd" id="1_ulo8t"]
 [ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="2_2qntn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqt67nrtk5xv3" path="res://lighted/reciver.tscn" id="4_p6fq7"]
 [ext_resource type="PackedScene" uid="uid://bek8804kmhsuq" path="res://lighted/splitter.tscn" id="5_e73qb"]
 [ext_resource type="PackedScene" uid="uid://bkr3rehpnlw2j" path="res://exit.tscn" id="6_ktlfv"]
+[ext_resource type="PackedScene" uid="uid://cm8ps20jkbqd" path="res://lighted/prisim.tscn" id="6_psprx"]
 [ext_resource type="TileSet" uid="uid://c6uaxs5ycf0q4" path="res://tileset.tres" id="7_tp66q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84yd0"]
@@ -44,9 +45,16 @@ color = Color(1, 1, 0, 1)
 
 [node name="splitter" parent="lights" instance=ExtResource("5_e73qb")]
 position = Vector2(-24, -8)
+lights = null
+colors = null
 
 [node name="splitter2" parent="lights" instance=ExtResource("5_e73qb")]
 position = Vector2(40, -8)
+lights = null
+colors = null
+
+[node name="prisim" parent="lights" instance=ExtResource("6_psprx")]
+position = Vector2(56, -40)
 
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("6_ktlfv")]
 position = Vector2(0, -96)
