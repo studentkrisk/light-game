@@ -23,7 +23,7 @@ position = Vector2(0, 88)
 [node name="lights" type="Node2D" parent="."]
 
 [node name="emitter" parent="lights" instance=ExtResource("3_wc25b")]
-position = Vector2(8, 56)
+position = Vector2(8, 40)
 rotation = 1.5708
 color = Color(1, 0, 0, 0.5)
 
@@ -32,11 +32,11 @@ position = Vector2(8, -40)
 rotation = -1.5708
 
 [node name="reciver2" parent="lights" instance=ExtResource("4_ranue")]
-position = Vector2(88, -8)
+position = Vector2(72, -8)
 rotation = 1.5708
 
 [node name="splitter" parent="lights" instance=ExtResource("5_s8xe3")]
-position = Vector2(-24, -8)
+position = Vector2(72, 40)
 
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("5_ld54k")]
 position = Vector2(0, -96)

@@ -38,7 +38,7 @@ rotation = -1.5708
 color = Color(1, 1, 0, 1)
 
 [node name="splitter" parent="lights" instance=ExtResource("4_oe0ii")]
-position = Vector2(-24, -8)
+position = Vector2(-8, -8)
 
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("5_p2vrx")]
 position = Vector2(0, -96)

@@ -22,7 +22,7 @@ position = Vector2(0, 88)
 [node name="lights" type="Node2D" parent="."]
 
 [node name="emitter" parent="lights" instance=ExtResource("3_v2ykl")]
-position = Vector2(-72, 24)
+position = Vector2(-72, 40)
 rotation = 3.14159
 color = Color(1, 0, 0, 0.501961)
 

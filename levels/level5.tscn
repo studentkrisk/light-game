@@ -32,7 +32,7 @@ rotation = 1.5708
 color = Color(0, 0, 1, 0.501961)
 
 [node name="reciver" parent="lights" instance=ExtResource("4_sfn51")]
-position = Vector2(-72, -40)
+position = Vector2(24, -8)
 rotation = -1.5708
 
 [node name="reciver2" parent="lights" instance=ExtResource("4_sfn51")]
