@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxg52y3x773un"]
+[gd_scene load_steps=10 format=3 uid="uid://cxg52y3x773un"]
 
 [ext_resource type="Script" path="res://light.gd" id="1_iei1f"]
 [ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="2_yqpe0"]
 [ext_resource type="PackedScene" uid="uid://bra62kyne5wmp" path="res://lighted/emitter.tscn" id="3_vd2yl"]
 [ext_resource type="PackedScene" uid="uid://bonqhyu43wf3t" path="res://lighted/rotator.tscn" id="4_xyyiu"]
 [ext_resource type="PackedScene" uid="uid://cqt67nrtk5xv3" path="res://lighted/reciver.tscn" id="5_3q4y3"]
+[ext_resource type="PackedScene" uid="uid://bek8804kmhsuq" path="res://lighted/splitter.tscn" id="6_4ds3l"]
 [ext_resource type="PackedScene" uid="uid://bkr3rehpnlw2j" path="res://exit.tscn" id="6_7qi70"]
 [ext_resource type="TileSet" uid="uid://c6uaxs5ycf0q4" path="res://tileset.tres" id="7_51b6x"]
 
@@ -27,13 +28,21 @@ position = Vector2(72, 40)
 rotation = 1.5708
 color = Color(0, 1, 0, 0.501961)
 
+[node name="emitter2" parent="lights" instance=ExtResource("3_vd2yl")]
+position = Vector2(24, 40)
+rotation = 1.5708
+color = Color(1, 0, 0, 0.501961)
+
 [node name="rotator" parent="lights" instance=ExtResource("4_xyyiu")]
-position = Vector2(-8, -8)
+position = Vector2(-40, 8)
 
 [node name="reciver" parent="lights" instance=ExtResource("5_3q4y3")]
 position = Vector2(72, -56)
 rotation = -1.5708
-color = Color(0, 0, 1, 1)
+color = Color(0, 1, 1, 1)
+
+[node name="splitter" parent="lights" instance=ExtResource("6_4ds3l")]
+position = Vector2(-40, -40)
 
 [node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("6_7qi70")]
 position = Vector2(0, -96)
