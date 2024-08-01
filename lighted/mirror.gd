@@ -12,8 +12,8 @@ func reset():
 func hit_by_light(body, color):
 	ray0.force_raycast_update()
 	ray1.force_raycast_update()
-	call("generate_light", body, color, ray0, ray1, 1)
-	call("generate_light", body, color, ray1, ray0, 0)
+	call("generate_light", body, color, ray0, ray1, 1, 0)
+	call("generate_light", body, color, ray1, ray0, 0, 0)
 
 func update_light():
 	ray0.force_raycast_update()

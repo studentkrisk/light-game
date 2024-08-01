@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8atdlttbf8kk"]
+
+[ext_resource type="Script" path="res://lighted/splitter3.gd" id="1_6y3uu"]
+[ext_resource type="Texture2D" uid="uid://bbsg1dtpuhsj6" path="res://icon.svg" id="2_b6kll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj1n0"]
+size = Vector2(16, 16)
+
+[node name="3-splitter" type="CharacterBody2D"]
+collision_layer = 3
+motion_mode = 1
+script = ExtResource("1_6y3uu")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_b6kll")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.05, 0.025)
+texture = ExtResource("2_b6kll")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.05, 0.025)
+texture = ExtResource("2_b6kll")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+scale = Vector2(0.05, 0.025)
+texture = ExtResource("2_b6kll")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+scale = Vector2(0.05, 0.025)
+texture = ExtResource("2_b6kll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uj1n0")
+
+[node name="RayCast2D0" type="RayCast2D" parent="."]
+target_position = Vector2(0, 400)
+collision_mask = 2
+
+[node name="RayCast2D1" type="RayCast2D" parent="."]
+target_position = Vector2(400, 0)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(-400, 0)
+collision_mask = 2
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+target_position = Vector2(0, -400)
+collision_mask = 2

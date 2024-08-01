@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="2_bq2cw"]
 [ext_resource type="PackedScene" uid="uid://bra62kyne5wmp" path="res://lighted/emitter.tscn" id="3_pi1cy"]
 [ext_resource type="PackedScene" uid="uid://bonqhyu43wf3t" path="res://lighted/rotator.tscn" id="4_dtq2p"]
-[ext_resource type="PackedScene" uid="uid://cm8ps20jkbqd" path="res://lighted/prisim.tscn" id="5_kdufa"]
 [ext_resource type="PackedScene" uid="uid://b6o4ef25wjqrv" path="res://lighted/mirror.tscn" id="6_a3oc8"]
+[ext_resource type="PackedScene" uid="uid://c8atdlttbf8kk" path="res://lighted/splitter3.tscn" id="6_tceyv"]
 [ext_resource type="PackedScene" uid="uid://bkr3rehpnlw2j" path="res://exit.tscn" id="7_kb0bt"]
 [ext_resource type="TileSet" uid="uid://c6uaxs5ycf0q4" path="res://tileset.tres" id="8_m5mc0"]
 
@@ -40,11 +40,10 @@ color = Color(0, 1, 0, 0.501961)
 [node name="rotator" parent="lights" instance=ExtResource("4_dtq2p")]
 position = Vector2(-72, -8)
 
-[node name="prisim" parent="lights" instance=ExtResource("5_kdufa")]
-position = Vector2(72, -40)
-
 [node name="mirror" parent="lights" instance=ExtResource("6_a3oc8")]
 position = Vector2(-72, -40)
+
+[node name="3-splitter" parent="lights" instance=ExtResource("6_tceyv")]
 
 [node name="exit" parent="." instance=ExtResource("7_kb0bt")]
 position = Vector2(0, -96)

@@ -25,19 +25,18 @@ func update_all():
 		if i is Emitter:
 			i.update_light()
 
-func generate_light(body, color, iray, oray, color_ind):
+func generate_light(body, color, iray, oray, i, ci):
 	if iray.is_colliding() and iray.get_collider() == body:
 		var odir = (oray.to_global(oray.target_position) - oray.global_position).normalized()
 		var ostart = oray.global_position
-		var ray_light = []
-		ray_light.append(ostart + odir*Global.TILE_SIZE/2)
+		lights[i] = []
+		colors[i][ci] = color
+		lights[i].append(ostart + odir*Global.TILE_SIZE/2)
 		if oray.is_colliding():
-			ray_light.append(oray.get_collision_point())
-			oray.get_collider().hit_by_light(self, colors[color_ind].reduce(func(a, b): return a + b))
+			lights[i].append(oray.get_collision_point())
+			oray.get_collider().hit_by_light(self, colors[i].reduce(func(a, b): return a + b))
 		else:
-			ray_light.append(ostart + odir*Global.TILE_SIZE*25)
-		return [color, ray_light]
-	return [Color(0, 0, 0, 0), []]
+			lights[i].append(ostart + odir*Global.TILE_SIZE*25)
 
 func _physics_process(delta):
 	velocity *= 0.25
