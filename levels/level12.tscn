@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://7oawi2l72npm"]
+
+[ext_resource type="Script" path="res://light.gd" id="1_tieii"]
+[ext_resource type="PackedScene" uid="uid://b4wwpgrebgi3k" path="res://player.tscn" id="2_6lqo8"]
+[ext_resource type="PackedScene" uid="uid://bra62kyne5wmp" path="res://lighted/emitter.tscn" id="3_e7a4i"]
+[ext_resource type="PackedScene" uid="uid://bonqhyu43wf3t" path="res://lighted/rotator.tscn" id="4_qw001"]
+[ext_resource type="PackedScene" uid="uid://cqt67nrtk5xv3" path="res://lighted/reciver.tscn" id="5_0ksm7"]
+[ext_resource type="PackedScene" uid="uid://bkr3rehpnlw2j" path="res://exit.tscn" id="6_2gg48"]
+[ext_resource type="TileSet" uid="uid://c6uaxs5ycf0q4" path="res://tileset.tres" id="7_4jq5w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84yd0"]
+blend_mode = 1
+
+[node name="world" type="Node2D"]
+material = SubResource("CanvasItemMaterial_84yd0")
+script = ExtResource("1_tieii")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource("2_6lqo8")]
+position = Vector2(0, 88)
+
+[node name="lights" type="Node2D" parent="."]
+
+[node name="emitter" parent="lights" instance=ExtResource("3_e7a4i")]
+position = Vector2(72, 40)
+rotation = 1.5708
+color = Color(0, 1, 0, 0.501961)
+
+[node name="rotator" parent="lights" instance=ExtResource("4_qw001")]
+position = Vector2(-8, -8)
+
+[node name="reciver" parent="lights" instance=ExtResource("5_0ksm7")]
+position = Vector2(72, -56)
+rotation = -1.5708
+color = Color(0, 0, 1, 1)
+
+[node name="exit" parent="." node_paths=PackedStringArray("recivers") instance=ExtResource("6_2gg48")]
+position = Vector2(0, -96)
+recivers = [NodePath("../lights/reciver")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("7_4jq5w")
+format = 2
+layer_0/tile_data = PackedInt32Array(393208, 393216, 1, 393209, 393216, 1, 393210, 393216, 1, 393211, 393216, 1, 393212, 393216, 1, 393213, 393216, 1, 393214, 393216, 1, 327681, 393216, 1, 327682, 393216, 1, 327683, 393216, 1, 327684, 393216, 1, 327685, 393216, 1, 327686, 393216, 1, 327687, 393216, 1, 262151, 393216, 1, 196615, 393216, 1, 131079, 393216, 1, 65543, 393216, 1, 7, 393216, 1, -65529, 393216, 1, -131065, 393216, 1, -196601, 393216, 1, -262137, 393216, 1, -327673, 393216, 1, -393209, 393216, 1, -393210, 393216, 1, -393211, 393216, 1, -393212, 393216, 1, -393213, 393216, 1, -393214, 393216, 1, -393215, 393216, 1, -327682, 393216, 1, -327683, 393216, 1, -327684, 393216, 1, -327685, 393216, 1, -327686, 393216, 1, -327687, 393216, 1, -327688, 393216, 1, -262152, 393216, 1, -196616, 393216, 1, -131080, 393216, 1, -65544, 393216, 1, -8, 393216, 1, 65528, 393216, 1, 131064, 393216, 1, 196600, 393216, 1, 262136, 393216, 1, 327672, 393216, 1, 393216, 393216, 1, 458751, 393216, 1)
